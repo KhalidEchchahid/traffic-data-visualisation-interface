@@ -1,11 +1,10 @@
 "use client";
 import CheckoutForm from "@/components/CheckoutForm";
 import Gallery from "@/components/Gallery";
-import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import OrderSummary from "@/components/OrderSummary";
 import ProductInfo from "@/components/ProductInfo";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { useState } from "react";
 
 export const metadata: Metadata = {
