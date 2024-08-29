@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "استكشفي تشكيلة عباياتنا المصممة بأعلى مستويات الأناقة والراحة لتناسب جميع احتياجاتك. كوني دائماً في أفضل إطلالة مع عباءاتنا الفاخرة.",
   icons: {
-    icon: "/HAYAE.png",
+    icon: "/public/HAYAE.png",
   },
 };
 
