@@ -4,7 +4,10 @@ import Gallery from "@/components/Gallery";
 import Navbar from "@/components/Navbar";
 import OrderSummary from "@/components/OrderSummary";
 import ProductInfo from "@/components/ProductInfo";
+import { Metadata } from "next";
 import { useState } from "react";
+
+
 
 const product = {
   id: 1,
@@ -59,14 +62,14 @@ const Page = () => {
           }
         />
 
-        <OrderSummary
+        {/* <OrderSummary
           title={product.name}
           price={product.price}
           discount={product.discount}
           selectedColor={selectedColor}
           selectedSize={selectedSize}
           quantity={quantity}
-        />
+        /> */}
       </div>
       <CheckoutForm
         price={product.price}

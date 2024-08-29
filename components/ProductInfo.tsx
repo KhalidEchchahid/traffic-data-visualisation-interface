@@ -115,7 +115,7 @@ const ProductInfo = ({
       )}
 
       {/* Quantity */}
-      <div className="mt-6">
+      <div className="mt-6 hidden">
         <h2 className="text-lg font-semibold text-gray-700">الكمية:</h2>
         <div className="flex items-center gap-4 mt-3">
           <button

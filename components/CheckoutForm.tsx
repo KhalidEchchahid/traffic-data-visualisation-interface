@@ -63,7 +63,7 @@ const CheckoutForm = ({
     setIsSubmitting(true);
     try {
       if (selectedColor === "" || selectedSize === "") {
-        setError("يرجى اختيار اللون والحجم قبل متابعة الطلب.");
+        setError("يرجى اختيار الحجم قبل متابعة الطلب.");
         setIsSubmitting(false);
         return;
       }
