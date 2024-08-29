@@ -19,14 +19,17 @@ const ExportExcel: React.FC<ExportExcelProps> = ({ table }) => {
 
     // Prepare data for export, filtering only the specified columns
     const exportData = selectedRows.map((row) => {
-      const { name, color, size, quantity, totalAmount, createdAt } =
+      const { name, color, size, quantity, totalAmount, createdAt , phone , shippingAdress , city } =
         row.original;
       return {
         Name: name,
         Color: color,
         Size: size,
         Quantity: quantity,
-        TotalAmount: totalAmount,
+        price: totalAmount,
+        phone: phone ,
+        city: city , 
+        shippingAdress : shippingAdress ,
         CreatedAt: createdAt
           ? new Intl.DateTimeFormat("fr", {
               year: "numeric",

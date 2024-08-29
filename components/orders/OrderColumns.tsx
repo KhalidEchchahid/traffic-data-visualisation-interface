@@ -4,8 +4,6 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "../ui/checkbox";
 import OrderStatus from "../OrderStatus";
 
-
-
 export const columns: ColumnDef<OrderType>[] = [
   {
     id: "select",
@@ -31,28 +29,47 @@ export const columns: ColumnDef<OrderType>[] = [
   },
   {
     accessorKey: "name",
-    header: "Name" ,
-    cell: ({ row }) => (
-      <div>{row.original.name}</div>
-    ),
+    header: "Name",
+    cell: ({ row }) => <div>{row.original.name}</div>,
   },
   {
     accessorKey: "color",
-    header: "Color" ,
+    header: "Color",
+    cell: ({ row }) => <div>{row.original.color}</div>,
+  },
+  {
+    accessorKey: "size",
+    header: "Size",
     cell: ({ row }) => (
-      <div>{row.original.color}</div>
+      <p className="text-sm text-gray-700 font-medium">{row.original.size}</p>
+    ),
+  },
+  {
+    accessorKey: "city",
+    header: "City",
+    cell: ({ row }) => (
+      <p className="text-sm text-gray-700 font-medium">{row.original.city}</p>
+    ),
+  },
+  {
+    accessorKey: "Adress",
+    header: "Adress",
+    cell: ({ row }) => (
+      <p className="text-sm text-gray-700 font-medium">
+        {row.original.shippingAdress}
+      </p>
     ),
   },
   {
     accessorKey: "size",
-    header: "Size" ,
+    header: "Size",
     cell: ({ row }) => (
       <p className="text-sm text-gray-700 font-medium">{row.original.size}</p>
     ),
   },
   {
     accessorKey: "quantity",
-    header:"Quantity" ,
+    header: "Quantity",
     cell: ({ row }) => (
       <p className="text-sm text-gray-700 font-medium">
         {row.original.quantity}
@@ -61,7 +78,7 @@ export const columns: ColumnDef<OrderType>[] = [
   },
   {
     accessorKey: "totalAmount",
-    header: "TotalAmount" ,
+    header: "TotalAmount",
     cell: ({ row }) => (
       <p className="text-sm text-gray-700 font-medium">
         {row.original.totalAmount}
@@ -70,7 +87,7 @@ export const columns: ColumnDef<OrderType>[] = [
   },
   {
     accessorKey: "createdAt",
-    header: "CreatedAt" ,
+    header: "CreatedAt",
     cell: ({ row }) => {
       const createdAt = row.original.createdAt;
       return (
@@ -88,9 +105,7 @@ export const columns: ColumnDef<OrderType>[] = [
   },
   {
     accessorKey: "status",
-    header: () => (
-      <div>status</div>
-    ),
+    header: () => <div>status</div>,
     cell: ({ row }) => {
       return (
         <OrderStatus
