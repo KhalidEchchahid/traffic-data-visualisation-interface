@@ -4,17 +4,7 @@ import Gallery from "@/components/Gallery";
 import Navbar from "@/components/Navbar";
 import OrderSummary from "@/components/OrderSummary";
 import ProductInfo from "@/components/ProductInfo";
-import type { Metadata } from "next";
 import { useState } from "react";
-
-export const metadata: Metadata = {
-  title: "تألقي بأناقة وراحة مع عباءاتنا الفاخرة",
-  description:
-    "استكشفي تشكيلة عباياتنا المصممة بأعلى مستويات الأناقة والراحة لتناسب جميع احتياجاتك. كوني دائماً في أفضل إطلالة مع عباءاتنا الفاخرة.",
-  icons: {
-    icon: "/HAYAE.png",
-  },
-};
 
 const product = {
   id: 1,
