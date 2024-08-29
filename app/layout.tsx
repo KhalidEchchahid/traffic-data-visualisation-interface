@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="rtl">
+       <Head>
+        <meta name="facebook-domain-verification" content="5n499kynw54azs1bbeks5i3zwh0g32" />
+      </Head>
       <body className={inter.className}>
         {children}
         <WhatsAppButton />
