@@ -37,7 +37,7 @@ const Signin = () => {
   };
 
   return (
-    <section className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black">
+    <div className="flex items-center justify-center h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black">
       <form
         className="p-8 w-full max-w-md flex flex-col justify-center items-center gap-4
                    border border-solid border-gray-700 bg-gray-800 rounded-xl shadow-2xl"
@@ -57,7 +57,9 @@ const Signin = () => {
 
         {/* Email Input */}
         <div className="w-full">
-          <label className="text-sm text-gray-300 mb-2 block">البريد الإلكتروني</label>
+          <label className="text-sm text-gray-300 mb-2 block">
+            البريد الإلكتروني
+          </label>
           <div className="flex items-center border border-gray-600 rounded-lg shadow-sm overflow-hidden bg-gray-700">
             <input
               type="email"
@@ -71,7 +73,9 @@ const Signin = () => {
 
         {/* Password Input */}
         <div className="w-full">
-          <label className="text-sm text-gray-300 mb-2 block">كلمة المرور</label>
+          <label className="text-sm text-gray-300 mb-2 block">
+            كلمة المرور
+          </label>
           <div className="flex items-center border border-gray-600 rounded-lg shadow-sm overflow-hidden bg-gray-700">
             <input
               type={showPassword ? "text" : "password"}
@@ -105,7 +109,7 @@ const Signin = () => {
           {loading ? "جاري التحميل..." : "تسجيل الدخول"}
         </button>
       </form>
-    </section>
+    </div>
   );
 };
 
