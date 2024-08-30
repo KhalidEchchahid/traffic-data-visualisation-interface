@@ -118,3 +118,35 @@ export async function updateOrderStatus(params: UpdateOrderStatusParams) {
     throw error;
   }
 }
+
+interface UpdateOrderStatusesParams {
+  orderIds: string[];  // Changed to an array to handle multiple orders
+  newStatus: string;
+  path: string;
+}
+
+export async function updateOrderStatuses(params: UpdateOrderStatusesParams) {
+  try {
+    await connectToDatabase();
+
+    const { orderIds, newStatus, path } = params;
+
+    // Update the status of all orders with the given IDs
+    const updatedOrders = await Order.updateMany(
+      { _id: { $in: orderIds } },
+      { status: newStatus },
+      { new: true }
+    );
+
+
+    if (!updatedOrders) {
+      throw new Error("No orders were updated");
+    }
+
+    // Revalidate the path to reflect changes
+    revalidatePath(path);
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}

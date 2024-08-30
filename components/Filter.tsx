@@ -23,7 +23,8 @@ const filters = [
     value: "pas de reponse",
     name: "Pas de réponse",
   }, // No reply
-  { value: "Annule", name: "Annulé" }, // Canceled
+  { value: "annule", name: "Annulé" }, // Canceled
+  { value: "exporte", name: "Exporté" }, // Exported
 ];
 
 const Filter = () => {

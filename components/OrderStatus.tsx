@@ -16,7 +16,8 @@ const statuses = [
     label: "Pas de réponse",
     color: "bg-orange-500 text-white",
   }, // No reply
-  { value: "Annule", label: "Annulé", color: "bg-red-500 text-white" }, // Canceled
+  { value: "annule", label: "Annulé", color: "bg-red-500 text-white" }, // Canceled
+  { value: "exporte", label: "Exporté", color: "bg-blue-500 text-white" }, // Exported
 ];
 
 interface Props {

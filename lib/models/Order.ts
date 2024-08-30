@@ -11,7 +11,7 @@ const orderSchema = new Schema({
   totalAmount: Number,
   status: {
     type: String,
-    enum: ["en attente", "eonfirme", "pas de reponse", "annule"],
+    enum: ["en attente", "eonfirme", "pas de reponse", "annule","exporte"],
     default: "en attente",
   },
 
