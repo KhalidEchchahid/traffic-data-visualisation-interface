@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/select";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { formUrlQuery } from "@/lib/utils";
-import Link from "next/link";
 
 const filters = [
   {

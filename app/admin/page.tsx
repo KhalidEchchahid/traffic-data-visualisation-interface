@@ -31,7 +31,9 @@ const Page = async ({ searchParams }: SearchParamsProps) => {
   return (
     <div className="px-10 py-5" dir="ltr">
       <div className="flex justify-between">
+        <Link href="/admin">
         <h1 className="text-3xl font-bold">Orders</h1>
+        </Link>
         <Logout />
       </div>
 

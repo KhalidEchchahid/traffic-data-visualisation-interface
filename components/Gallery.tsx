@@ -63,16 +63,16 @@ const Gallery = ({
       const currentIndex = productMedia.findIndex(
         (media) => media.image === mainImage
       );
-      const nextIndex = (currentIndex + 1) % productMedia.length;
-      setMainImage(productMedia[nextIndex].image);
+      const prevIndex =
+        (currentIndex - 1 + productMedia.length) % productMedia.length;
+      setMainImage(productMedia[prevIndex].image);
     },
     onSwipedRight: () => {
       const currentIndex = productMedia.findIndex(
         (media) => media.image === mainImage
       );
-      const prevIndex =
-        (currentIndex - 1 + productMedia.length) % productMedia.length;
-      setMainImage(productMedia[prevIndex].image);
+      const nextIndex = (currentIndex + 1) % productMedia.length;
+      setMainImage(productMedia[nextIndex].image);
     },
     trackMouse: true,
   });
