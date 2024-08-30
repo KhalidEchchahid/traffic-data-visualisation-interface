@@ -92,7 +92,7 @@ const Gallery = ({
             />
           </div>
         </DialogTrigger>
-        <DialogContent className="bg-inherit w-full p-0">
+        <DialogContent className="bg-inherit w-full max-h-screen p-0">
           <DialogHeader className="hidden">
             <DialogTitle>full image</DialogTitle>
           </DialogHeader>
