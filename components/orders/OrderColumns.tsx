@@ -61,13 +61,6 @@ export const columns: ColumnDef<OrderType>[] = [
     ),
   },
   {
-    accessorKey: "size",
-    header: "Size",
-    cell: ({ row }) => (
-      <p className="text-sm text-gray-700 font-medium">{row.original.size}</p>
-    ),
-  },
-  {
     accessorKey: "quantity",
     header: "Quantity",
     cell: ({ row }) => (

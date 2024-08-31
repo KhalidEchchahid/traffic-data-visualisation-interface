@@ -31,7 +31,6 @@ const ProductInfo = ({
   setQuantity,
   setMainImage,
 }: Props) => {
-
   const discountPercentage = discount
     ? Math.round(((discount - price) / discount) * 100)
     : 0;
@@ -51,7 +50,7 @@ const ProductInfo = ({
         <h1 className="text-3xl font-bold text-gray-900">{title}</h1>
         {discountPercentage > 0 && (
           <div className="bg-gradient-to-r from-pink-500 to-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-            {discountPercentage}% OFF
+            {discountPercentage}%-
           </div>
         )}
       </div>
