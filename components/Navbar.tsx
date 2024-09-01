@@ -7,12 +7,12 @@ const Navbar = () => {
       <div className="text-lg font-semibold">🎉عرض خاص</div>
       <div className="flex items-center space-x-4">
         <Link
-          href="https://wa.me/645557609"
+          href="https://wa.me/212600353017"
           target="_blank"
           rel="noopener noreferrer"
           className="text-lg font-semibold underline hover:no-underline transition"
         >
-          0645557609
+          0600353017
         </Link>
       </div>
     </div>
