@@ -63,11 +63,6 @@ const ProductInfo = ({
         )}
       </div>
 
-      {/* Description */}
-      <div className="mt-4">
-        <h2 className="text-lg font-semibold text-gray-700">الوصف:</h2>
-        <p className="text-gray-600">{description}</p>
-      </div>
 
       {/* Colors */}
       {colors.length > 0 && (
@@ -112,7 +107,11 @@ const ProductInfo = ({
           </div>
         </div>
       )}
-
+{/* Description */}
+<div className="mt-4">
+        <h2 className="text-lg font-semibold text-gray-700">الوصف:</h2>
+        <p className="text-gray-600">{description}</p>
+      </div>
       {/* Quantity */}
       <div className="mt-6 hidden">
         <h2 className="text-lg font-semibold text-gray-700">الكمية:</h2>
