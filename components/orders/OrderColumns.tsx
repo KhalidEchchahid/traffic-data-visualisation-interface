@@ -33,6 +33,11 @@ export const columns: ColumnDef<OrderType>[] = [
     cell: ({ row }) => <div>{row.original.name}</div>,
   },
   {
+    accessorKey: "phone",
+    header: "Phone",
+    cell: ({ row }) => <div>{row.original.phone}</div>,
+  },
+  {
     accessorKey: "color",
     header: "Color",
     cell: ({ row }) => <div>{row.original.color}</div>,
