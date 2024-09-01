@@ -72,7 +72,7 @@ const CheckoutForm = ({
         shippingAdress: values.shippingAdress,
         city: values.city,
         phone: values.phone,
-        totalAmount,
+        totalAmount: totalAmount + 30,
         color: selectedColor,
         size: selectedSize,
         quantity,

@@ -28,6 +28,7 @@ export async function createOrder(params: createOrderParams) {
       totalAmount,
     } = params;
 
+    
     const newOrder = new Order({
       name,
       shippingAdress,
