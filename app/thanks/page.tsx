@@ -24,7 +24,7 @@ const Page = () => {
         <p className="text-gray-500 text-sm">
           إذا كانت لديك أي استفسارات، لا تتردد في{" "}
           <Link
-            href="https://wa.me/600353017"
+            href="https://wa.me/645557609"
             target="_blank"
             rel="noopener noreferrer"
             className="text-black underline hover:text-gray-800"

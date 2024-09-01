@@ -4,7 +4,7 @@ import Image from "next/image";
 const WhatsAppButton = () => {
   return (
     <a
-      href="https://wa.me/600353017" // Replace with your WhatsApp number
+      href="https://wa.me/645557609" // Replace with your WhatsApp number
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-5 right-5 bg-white p-2 rounded-full border border-green-500 shadow-lg transition-transform transform hover:scale-110 hover:shadow-xl"
