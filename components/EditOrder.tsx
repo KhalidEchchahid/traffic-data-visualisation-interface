@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import {
   Dialog,
   DialogContent,
@@ -19,7 +18,6 @@ import { Edit } from "lucide-react";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -36,32 +34,34 @@ const formSchema = z.object({
   shippingAdress: z.string(),
 });
 
-interface Props{
-    initialData : OrderType ,
+interface Props {
+  initialData: OrderType;
 }
-export function EidtOrder({initialData } : Props) {
-    const [isSubmitting, setIsSubmitting] = useState(false);
-const pathname = usePathname();
+
+export function EidtOrder({ initialData }: Props) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        color : initialData.color ,
-        size : initialData.size ,
-        city : initialData.city ,
-        shippingAdress : initialData.shippingAdress
-    }
+      color: initialData.color,
+      size: initialData.size,
+      city: initialData.city,
+      shippingAdress: initialData.shippingAdress,
+    },
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     try {
-    
-        await UpdateOrder({
-            orderId : initialData._id,
-          ...values,
-          path: pathname,
-        });
-     
+      await UpdateOrder({
+        orderId: initialData._id,
+        ...values,
+        path: pathname,
+      });
+      setOpen(false); // Close the dialog on successful submission
     } catch (error) {
       console.log("[order_update_form]", error);
     } finally {
@@ -70,13 +70,13 @@ const pathname = usePathname();
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">
-          <Edit className="w-4 h-4"/>
+        <Button variant="outline" onClick={() => setOpen(true)}>
+          <Edit className="w-4 h-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px]" dir="ltr">
         <DialogHeader>
           <DialogTitle>Edit Order</DialogTitle>
           <DialogDescription className="hidden">
@@ -138,7 +138,9 @@ const pathname = usePathname();
               )}
             />
             <DialogFooter>
-              <Button type="submit" disabled={isSubmitting}>Save changes</Button>
+              <Button type="submit" disabled={isSubmitting}>
+                Save changes
+              </Button>
             </DialogFooter>
           </form>
         </Form>
@@ -146,3 +148,4 @@ const pathname = usePathname();
     </Dialog>
   );
 }
+
