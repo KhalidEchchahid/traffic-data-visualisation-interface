@@ -151,3 +151,34 @@ export async function updateOrderStatuses(params: UpdateOrderStatusesParams) {
     throw error;
   }
 }
+
+
+interface UpdateOrderParams {
+  orderId: string;
+  color: String;
+  size: String;
+  shippingAdress: String;
+  city: String;
+  path: string;
+}
+export async function UpdateOrder(params: UpdateOrderParams) {
+  try {
+    connectToDatabase();
+
+    const { orderId, shippingAdress, city, color, size, path } = params;
+
+    const updatedOrder = await Order.findByIdAndUpdate(orderId, {
+      shippingAdress,
+      city,
+      color,
+      size,
+    });
+    if (!updatedOrder) {
+      throw new Error("field update the order");
+    }
+    revalidatePath(path);
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}

@@ -3,6 +3,7 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "../ui/checkbox";
 import OrderStatus from "../OrderStatus";
+import { EidtOrder } from "../EditOrder";
 
 export const columns: ColumnDef<OrderType>[] = [
   {
@@ -111,6 +112,13 @@ export const columns: ColumnDef<OrderType>[] = [
           initialStatus={row.original.status}
         />
       );
+    },
+  },
+  {
+    accessorKey: "edit",
+    header: () => <div>Edit</div>,
+    cell: ({ row }) => {
+      return <EidtOrder initialData={row.original} />;
     },
   },
 ];
