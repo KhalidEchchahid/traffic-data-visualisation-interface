@@ -2,83 +2,63 @@
 import CheckoutForm from "@/components/CheckoutForm";
 import Gallery from "@/components/Gallery";
 import Navbar from "@/components/Navbar";
-import OrderSummary from "@/components/OrderSummary";
 import ProductInfo from "@/components/ProductInfo";
-import { Metadata } from "next";
 import { useState } from "react";
 
 const product = {
   id: 1,
-  name: "🌟 عباية أنيقة بألوان عصرية 🌟",
-  description:
-    "✨ استمتعي بالأناقة مع هذه العباية المميزة والمتوفرة بألوان متعددة تناسب جميع الأذواق. 🌸 مصممة لتوفر لكِ الراحة والجمال في آن واحد، مع قماش عالي الجودة يضمن لكِ مظهراً رائعاً في كل مناسبة. 🎀 الشحن متوفر بسعر 30 درهم فقط! 🚚 اطلبي الآن واختاري لونك المفضل من بين أحدث الألوان العصرية. 🌟",
-  price: 220,
-  discount: 300,
-  colors: [
-    { name: "كاشيري", image: "/images/abaya1.jpeg" },
-    { name: "أخضر", image: "/images/abaya2.jpeg" },
-    { name: "ترابي", image: "/images/abaya3.jpeg" },
-    { name: "أزرق ملكي", image: "/images/abaya4.jpeg" },
-    { name: "بني", image: "/images/abaya5.jpeg" },
-    { name: "أسود", image: "/images/abaya6.jpeg" },
-    { name: "باج داكن", image: "/images/abaya7.jpeg" },
+  name: "🔥 سروال القندريسي العصري 🔥",
+  price: 180,
+  discount: 230,
+  images: [
+    "/images/kandrissi-noir1.jpeg",
+    "/images/kandrissi-noir2.jpeg",
+    "/images/kandrissi-noir3.jpeg",
+    "/images/kandrisi-bleu1.jpeg",
+    "/images/kandrissi-bleu2.jpeg",
   ],
+  colors: ["أسود", "أزرق"],
   sizes: ["M", "L", "XL", "2XL"],
-  category: "عبايات",
-  availableStock: 25,
-  sku: "ABAYA-M001",
+  category: "سراويل",
+  availableStock: 50,
+  sku: "KANDRISSI-J001",
 };
 
 const Page = () => {
-  const [selectedColor, setSelectedColor] = useState<string>("");
-  const [selectedSize, setSelectedSize] = useState<string>("");
+  const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
+  const [selectedSize, setSelectedSize] = useState<string>(product.sizes[0]);
   const [quantity, setQuantity] = useState<number>(1);
-  return (
-    <div>
-      <Navbar />
-      <div className="flex justify-center items-center gap-5 max-md:flex-col pt-5">
-        <Gallery
-          productMedia={product.colors}
-          selectedColor={selectedColor}
-          setSelectedColor={setSelectedColor}
-        />
-        <ProductInfo
-          title={product.name}
-          description={product.description}
-          sizes={product.sizes}
-          colors={product.colors}
-          price={product.price}
-          discount={product.discount}
-          selectedColor={selectedColor}
-          setSelectedColor={setSelectedColor}
-          selectedSize={selectedSize}
-          setSelectedSize={setSelectedSize}
-          quantity={quantity}
-          setQuantity={setQuantity}
-          setMainImage={(image: string) =>
-            setSelectedColor(
-              product.colors.find((c) => c.image === image)?.name || ""
-            )
-          }
-        />
 
-        {/* <OrderSummary
-          title={product.name}
+  return (
+    <div className="bg-gray-100 min-h-screen">
+      <Navbar />
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex flex-col md:flex-row justify-center items-start gap-8">
+          <Gallery images={product.images} />
+          <ProductInfo
+            title={product.name}
+            sizes={product.sizes}
+            colors={product.colors}
+            price={product.price}
+            discount={product.discount}
+            selectedColor={selectedColor}
+            setSelectedColor={setSelectedColor}
+            selectedSize={selectedSize}
+            setSelectedSize={setSelectedSize}
+            quantity={quantity}
+            setQuantity={setQuantity}
+          />
+        </div>
+        <CheckoutForm
           price={product.price}
-          discount={product.discount}
           selectedColor={selectedColor}
           selectedSize={selectedSize}
           quantity={quantity}
-        /> */}
+        />
       </div>
-      <CheckoutForm
-        price={product.price}
-        selectedColor={selectedColor}
-        selectedSize={selectedSize}
-        quantity={quantity}
-      />
     </div>
   );
 };
 
 export default Page;
+

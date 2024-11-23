@@ -15,7 +15,7 @@ const Page = () => {
 
       <Link
         href="/"
-        className="inline-block mt-4 px-10 py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold rounded-full shadow-lg hover:bg-red-600 transition-transform transform hover:-translate-y-1 hover:scale-105"
+        className="inline-block mt-4 px-10 py-3 bg-gradient-to-r from-blue-300 to-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-red-600 transition-transform transform hover:-translate-y-1 hover:scale-105"
       >
         العودة إلى الصفحة الرئيسية
       </Link>

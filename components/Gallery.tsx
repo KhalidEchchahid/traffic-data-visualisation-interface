@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import {
   Dialog,
@@ -12,41 +12,13 @@ import {
 } from "./ui/dialog";
 
 interface GalleryProps {
-  productMedia: { image: string; name: string }[];
-  selectedColor: string;
-  setSelectedColor: (color: string) => void;
+  images: string[];
 }
 
-const Gallery = ({
-  productMedia,
-  selectedColor,
-  setSelectedColor,
-}: GalleryProps) => {
-  const initialImage =
-    productMedia.find((media) => media.name === selectedColor)?.image ||
-    productMedia[0].image;
-  const [mainImage, setMainImage] = useState(initialImage);
-
+const Gallery = ({ images }: GalleryProps) => {
+  const [mainImage, setMainImage] = useState(images[0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState<string | null>(null);
-
-  useEffect(() => {
-    const selectedColorObj = productMedia.find(
-      (media) => media.image === mainImage
-    );
-    if (selectedColorObj) {
-      setSelectedColor(selectedColorObj.name);
-    }
-  }, [mainImage, productMedia, setSelectedColor]);
-
-  useEffect(() => {
-    const selectedColorObj = productMedia.find(
-      (media) => media.name === selectedColor
-    );
-    if (selectedColorObj) {
-      setMainImage(selectedColorObj.image);
-    }
-  }, [selectedColor, productMedia]);
 
   const openModal = (image: string) => {
     setModalImage(image);
@@ -60,26 +32,21 @@ const Gallery = ({
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      const currentIndex = productMedia.findIndex(
-        (media) => media.image === mainImage
-      );
-      const prevIndex =
-        (currentIndex - 1 + productMedia.length) % productMedia.length;
-      setMainImage(productMedia[prevIndex].image);
+      const currentIndex = images.indexOf(mainImage);
+      const nextIndex = (currentIndex + 1) % images.length;
+      setMainImage(images[nextIndex]);
     },
     onSwipedRight: () => {
-      const currentIndex = productMedia.findIndex(
-        (media) => media.image === mainImage
-      );
-      const nextIndex = (currentIndex + 1) % productMedia.length;
-      setMainImage(productMedia[nextIndex].image);
+      const currentIndex = images.indexOf(mainImage);
+      const prevIndex = (currentIndex - 1 + images.length) % images.length;
+      setMainImage(images[prevIndex]);
     },
     trackMouse: true,
   });
 
   return (
     <div className="flex flex-col gap-3 max-w-[500px]" id="gallery">
-      <Dialog>
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogTrigger asChild>
           <div {...handlers} className="relative">
             <Image
@@ -87,39 +54,38 @@ const Gallery = ({
               width={500}
               height={500}
               alt="product"
-              className="w-96 h-96 rounded-lg shadow-xl object-cover relative cursor-pointer"
+              className="w-full h-[550px] rounded-lg shadow-xl object-cover relative cursor-pointer"
               onClick={() => openModal(mainImage)}
             />
           </div>
         </DialogTrigger>
-        <DialogContent className="bg-inherit w-full max-h-screen p-0">
+        <DialogContent className="bg-white w-full max-h-screen p-0">
           <DialogHeader className="hidden">
-            <DialogTitle>full image</DialogTitle>
+            <DialogTitle>Full image</DialogTitle>
           </DialogHeader>
           {modalImage && (
             <Image
               src={modalImage}
               alt="Full Image"
-              objectFit="contain"
-              className="rounded-lg w-full h-full"
               width={600}
               height={700}
+              className="rounded-lg w-full h-full object-contain"
             />
           )}
         </DialogContent>
       </Dialog>
-      <div className="flex gap-2 overflow-auto tailwind-scrollbar-hide custom-scrollbar max-w-96">
-        {productMedia.map((media, index) => (
+      <div className="flex gap-2 overflow-x-auto tailwind-scrollbar-hide custom-scrollbar max-w-96">
+        {images.map((image, index) => (
           <Image
             key={index}
-            src={media.image}
+            src={image}
             height={200}
             width={200}
-            alt="product"
+            alt={`product-${index}`}
             className={`w-20 h-20 rounded-lg object-cover cursor-pointer ${
-              mainImage === media.image ? "border-2 border-pink-500" : ""
+              mainImage === image ? "border-2 border-blue-500" : ""
             }`}
-            onClick={() => setMainImage(media.image)}
+            onClick={() => setMainImage(image)}
           />
         ))}
       </div>
@@ -128,3 +94,4 @@ const Gallery = ({
 };
 
 export default Gallery;
+

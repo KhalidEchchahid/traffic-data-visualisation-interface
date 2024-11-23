@@ -72,7 +72,7 @@ const CheckoutForm = ({
         shippingAdress: values.shippingAdress,
         city: values.city,
         phone: values.phone,
-        totalAmount: totalAmount + 30,
+        totalAmount: totalAmount,
         color: selectedColor,
         size: selectedSize,
         quantity,
@@ -182,7 +182,7 @@ const CheckoutForm = ({
             />
             <Button
               type="submit"
-              className="bg-gradient-to-r from-pink-500 to-red-500 text-white py-3 w-full rounded-lg hover:opacity-90 transition duration-300"
+              className="bg-gradient-to-r from-blue-300 to-blue-600 text-white py-3 w-full rounded-lg hover:opacity-90 transition duration-300"
               disabled={isSubmitting}
             >
               متابعة الطلب
