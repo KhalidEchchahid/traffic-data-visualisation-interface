@@ -25,17 +25,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" dir="rtl">
-      {/* <Head>
+      <Head>
         <meta
           name="facebook-domain-verification"
           content="5n499kynw54azs1bbeks5i3zwh0g32"
         />
-      </Head> */}
+      </Head>
       <body className={inter.className}>
         {children}
         <WhatsAppButton />
 
-        {/* <Script id="facebook-pixel" strategy="afterInteractive">
+        <Script id="facebook-pixel" strategy="afterInteractive">
           {`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -57,7 +57,7 @@ export default function RootLayout({
             style={{ display: "none" }}
             src={`https://www.facebook.com/tr?id=1014514213384645&ev=PageView&noscript=1`}
           />
-        </noscript> */}
+        </noscript>
       </body>
     </html>
   );
