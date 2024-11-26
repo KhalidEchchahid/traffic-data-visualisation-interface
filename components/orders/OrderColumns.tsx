@@ -4,6 +4,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "../ui/checkbox";
 import OrderStatus from "../OrderStatus";
 import { EidtOrder } from "../EditOrder";
+import Link from "next/link";
 
 export const columns: ColumnDef<OrderType>[] = [
   {
@@ -36,7 +37,20 @@ export const columns: ColumnDef<OrderType>[] = [
   {
     accessorKey: "phone",
     header: "Phone",
-    cell: ({ row }) => <div>{row.original.phone}</div>,
+    cell: ({ row }) => {
+      const phoneNumber = row.original.phone;
+      const formattedNumber = formatPhoneForWhatsApp(phoneNumber);
+      return (
+        <Link
+          href={`https://wa.me/${formattedNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 underline"
+        >
+          {phoneNumber}
+        </Link>
+      );
+    },
   },
   {
     accessorKey: "color",
@@ -122,3 +136,20 @@ export const columns: ColumnDef<OrderType>[] = [
     },
   },
 ];
+
+
+// Helper function to format the phone number for WhatsApp
+function formatPhoneForWhatsApp(phone: string): string {
+  // Remove any non-digit characters
+  const digits = phone.replace(/\D/g, '');
+  
+  // Check if the number starts with '0'
+  if (digits.startsWith('0')) {
+    // Replace the leading '0' with '212'
+    return '212' + digits.slice(1);
+  }
+  
+  // If it doesn't start with '0', assume it's already in the correct format
+  return digits;
+}
+
