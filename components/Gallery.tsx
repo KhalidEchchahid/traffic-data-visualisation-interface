@@ -51,10 +51,10 @@ const Gallery = ({ images }: GalleryProps) => {
           <div {...handlers} className="relative">
             <Image
               src={mainImage}
-              width={500}
-              height={500}
+              width={300}
+              height={300}
               alt="product"
-              className="w-full h-[550px] rounded-lg shadow-xl object-cover relative cursor-pointer"
+              className="w-96 h-96 rounded-lg shadow-xl object-cover relative cursor-pointer"
               onClick={() => openModal(mainImage)}
             />
           </div>

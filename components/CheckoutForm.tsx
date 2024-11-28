@@ -27,7 +27,6 @@ const formSchema = z.object({
     .min(10, "رقم الهاتف مطلوب")
     .max(13, "رقم الهاتف يجب أن يكون بين 10 و13 رقمًا"),
   city: z.string().min(1, "المدينة مطلوبة"),
-  shippingAdress: z.string().min(1, "عنوان الشحن مطلوب"),
 });
 
 interface Props {
@@ -52,12 +51,8 @@ const CheckoutForm = ({
       fullname: "",
       phone: "",
       city: "",
-      shippingAdress: "",
     },
   });
-
-  const total = 100;
-  const totalRounded = parseFloat(total.toFixed(2));
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
@@ -69,11 +64,11 @@ const CheckoutForm = ({
       }
       const newOrder = await createOrder({
         name: values.fullname,
-        shippingAdress: values.shippingAdress,
         city: values.city,
         phone: values.phone,
         totalAmount: totalAmount,
         color: selectedColor,
+        shippingAdress : "",
         size: selectedSize,
         quantity,
       });
@@ -96,8 +91,8 @@ const CheckoutForm = ({
   return (
     <div className="flex items-start justify-center mb-10 px-4" id="order">
       <div className="w-full max-w-lg pt-6">
-        <h1 className="text-3xl font-bold mb-8 text-center text-gray-900">
-          تفاصيل الشحن
+        <h1 className="text-3xl font-bold mb-8 text-center text-white">
+        للطلب إملأ الخانات أسفله
         </h1>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -111,13 +106,12 @@ const CheckoutForm = ({
               name="fullname"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>الاسم الكامل</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="الاسم الكامل"
                       {...field}
                       onKeyDown={handleKeyPress}
-                      className="border-gray-300 focus:border-pink-500 focus:ring-pink-500 rounded-md shadow-sm"
+                      className="border-gray-500 focus:border-yellow-400 focus:ring-yellow-400 rounded-md shadow-sm bg-[#0E1116] text-white placeholder:text-gray-400"
                     />
                   </FormControl>
                   <FormMessage />
@@ -129,7 +123,6 @@ const CheckoutForm = ({
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>رقم الهاتف</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="رقم الهاتف"
@@ -137,7 +130,7 @@ const CheckoutForm = ({
                       onKeyDown={handleKeyPress}
                       inputMode="numeric"
                       pattern="(?:\+212|0)[5-7][0-9]{8}"
-                      className="border-gray-300 focus:border-pink-500 focus:ring-pink-500 rounded-md shadow-sm"
+                      className="border-gray-500 focus:border-yellow-400 focus:ring-yellow-400 rounded-md shadow-sm bg-[#0E1116] text-white placeholder:text-gray-400"
                     />
                   </FormControl>
                   <FormMessage />
@@ -149,31 +142,12 @@ const CheckoutForm = ({
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>المدينة</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="المدينة"
                       {...field}
                       onKeyDown={handleKeyPress}
-                      className="border-gray-300 focus:border-pink-500 focus:ring-pink-500 rounded-md shadow-sm"
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="shippingAdress"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>عنوان الشحن</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="عنوان الشحن"
-                      {...field}
-                      onKeyDown={handleKeyPress}
-                      className="border-gray-300 focus:border-pink-500 focus:ring-pink-500 rounded-md shadow-sm"
+                      className="border-gray-500 focus:border-yellow-400 focus:ring-yellow-400 rounded-md shadow-sm bg-[#0E1116] text-white placeholder:text-gray-400"
                     />
                   </FormControl>
                   <FormMessage />
@@ -182,10 +156,10 @@ const CheckoutForm = ({
             />
             <Button
               type="submit"
-              className="bg-gradient-to-r from-blue-300 to-blue-600 text-white py-3 w-full rounded-lg hover:opacity-90 transition duration-300"
+              className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-3 w-full rounded-lg hover:opacity-90 transition duration-300"
               disabled={isSubmitting}
             >
-              متابعة الطلب
+               أطلب الان
             </Button>
           </form>
         </Form>

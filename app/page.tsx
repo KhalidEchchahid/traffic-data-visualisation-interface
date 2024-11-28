@@ -4,25 +4,28 @@ import Gallery from "@/components/Gallery";
 import Navbar from "@/components/Navbar";
 import ProductInfo from "@/components/ProductInfo";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ProductDiscription from "@/components/ProductDiscription";
+import ReviewsSection from "@/components/ReviewsSection";
+import Footer from "@/components/Footer";
 
 const product = {
   id: 1,
-  name: "🔥 سروال القندريسي العصري 🔥",
-  price: 180,
-  discount: 230,
-  images: [
-    "/images/kandrissi-noir1.jpeg",
-    "/images/kandrissi-noir2.jpeg",
-    "/images/kandrissi-noir3.jpeg",
-    "/images/kandrisi-bleu1.jpeg",
-    "/images/kandrissi-bleu2.jpeg",
-  ],
-  colors: ["أسود", "أزرق"],
-  sizes: ["M", "L", "XL", "2XL"],
-  category: "سراويل",
+  name: "متوفر لاي نوع من الانشطة",
+  price: 249,
+  discount: 350,
+  images: ["/images/shoes1.jpg", "/images/shoes2.jpg", "/images/shoes3.jpg"],
+  colors: ["أسود", "أبيض"],
+  sizes: ["39", "40", "41", "42", "43", "44"],
   availableStock: 50,
   sku: "KANDRISSI-J001",
 };
+
+const reviews = [
+  { id: 1, rating: 5, text: "خدمة ممتازة وجودة عالية! أنصح الجميع." },
+  { id: 2, rating: 4, text: "التوصيل سريع، والمنتج رائع!" },
+  { id: 3, rating: 5, text: "أحببت الخدمة جداً. شكراً لكم!" },
+];
 
 const Page = () => {
   const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
@@ -30,9 +33,28 @@ const Page = () => {
   const [quantity, setQuantity] = useState<number>(1);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gradient-to-r from-[#0E1116] to-[#2F343A] text-yellow-500  shadow-md ">
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <header className="container mx-auto px-4 pt-6">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl md:text-6xl font-bold text-center mb-4"
+        >
+          حذاء رياضي مريح وأنيق{" "}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-xl text-center mb-8"
+        >
+          ماركات جديدة من السبّاط بجوج ديال الألوان، ديما مناسب لك!
+        </motion.p>
+      </header>
+      <div className="container mx-auto px-4 py-4">
         <div className="flex flex-col md:flex-row justify-center items-start gap-8">
           <Gallery images={product.images} />
           <ProductInfo
@@ -55,10 +77,12 @@ const Page = () => {
           selectedSize={selectedSize}
           quantity={quantity}
         />
+        <ProductDiscription />
+        <ReviewsSection reviews={reviews}/>
       </div>
+      <Footer />
     </div>
   );
 };
 
 export default Page;
-
