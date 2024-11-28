@@ -23,11 +23,17 @@ const product = {
 
 const reviews = [
   { id: 1, rating: 5, text: "وصلتني السبرديلة، داكشي ناضي شكرا أخي👍" },
-  { id: 2, rating: 4, text: "السبرديلة كما شفتها فالصورة، شكرا أخي اللهم بارك ☺" },
-  { id: 3, rating: 5, text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍" },
+  {
+    id: 2,
+    rating: 4,
+    text: " السبرديلة كما شفتها فالصورة، شكرا خويا اللهم بارك ☺️",
+  },
+  {
+    id: 3,
+    rating: 5,
+    text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍",
+  },
 ];
-
-
 
 const Page = () => {
   const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
@@ -53,7 +59,7 @@ const Page = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-center mb-8"
         >
-          ماركات جديدة من السبّاط بجوج ديال الألوان، ديما مناسب لك!
+          ماركات جديدة من السبرديلة بجوج ديال الألوان، مميزة وأنيقة !
         </motion.p>
       </header>
       <div className="container mx-auto px-4 py-4">
@@ -80,7 +86,7 @@ const Page = () => {
           quantity={quantity}
         />
         <ProductDiscription />
-        <ReviewsSection reviews={reviews}/>
+        <ReviewsSection reviews={reviews} />
       </div>
       <Footer />
     </div>

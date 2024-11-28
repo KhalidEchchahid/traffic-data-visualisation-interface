@@ -35,20 +35,22 @@ const ProductInfo = ({
   return (
     <div className="max-w-[400px] p-2 text-gray-300">
       {/* Title & Discount */}
-      <div className="flex items-center justify-between gap-5">
-        <h1 className="text-3xl font-bold text-yellow-500">{title}</h1>
-        {discountPercentage > 0 && (
-          <div className="bg-green-500 text-black text-xs font-semibold px-2 py-1 rounded-full">
-            {discountPercentage}%- 
-          </div>
-        )}
-      </div>
+      <h1 className="text-3xl font-bold text-yellow-500">{title}</h1>
 
       {/* Price & Original Price */}
-      <div className="mt-4 flex gap-4">
+      <div className="mt-4 flex justify-between">
+        <div className="flex gap-4">
         <p className="text-2xl font-bold text-gray-200">{price} درهم</p>
         {discount > 0 && (
-          <p className="text-sm text-gray-400 line-through mt-3">{discount} درهم</p>
+          <p className="text-sm text-gray-400 line-through mt-3">
+            {discount} درهم
+          </p>
+        )}
+        </div>
+        {discountPercentage > 0 && (
+          <div className="bg-green-500 h-6 text-black text-xs font-semibold px-2 py-1 rounded-2xl">
+            {discountPercentage}%- 
+          </div>
         )}
       </div>
 
@@ -96,8 +98,6 @@ const ProductInfo = ({
         </div>
       )}
 
-     
-
       {/* Quantity */}
       <div className="mt-6">
         <h2 className="text-lg font-semibold text-gray-200">الكمية:</h2>
@@ -123,8 +123,6 @@ const ProductInfo = ({
 
 export default ProductInfo;
 
-
-
 //  {/* Description */}
 //  <div className="mt-6 space-y-4">
 //  <h2 className="text-xl font-semibold text-yellow-500">
@@ -138,7 +136,7 @@ export default ProductInfo;
 //    🔥 علاش تختار سروال القندريسي ديالنا؟
 //  </h3>
 //  <ul className="space-y-2">
-//    {[ 
+//    {[
 //      "تصميم مميز وعصري",
 //      "جودة عالية وخامة متينة",
 //      "مناسب للإطلالات الكاجوال والأنيقة",
