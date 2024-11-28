@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import ProductDiscription from "@/components/ProductDiscription";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
-import { Metadata } from "next";
 
 const product = {
   id: 1,
@@ -28,14 +27,6 @@ const reviews = [
   { id: 3, rating: 5, text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍" },
 ];
 
-export const metadata: Metadata = {
-  title: "حذاء رياضي مريح وأنيق ",
-  description:
-    "  هذا الحذاء الرياضي مصمم بعناية ليوفر لك الراحة والأناقة طوال اليوم. يتميز بتصميم عصري يتماشى مع جميع الإطلالات اليومية، سواء كانت كاجوال أو رياضية.  مصنوع من خامات عالية الجودة تضمن التهوية والمتانة، مع وسادة قدم ناعمة  لتوفير دعم مثالي لراحة قدميك.",
-  icons: {
-    icon: "/images/shoes3.jpg",
-  },
-};
 
 
 const Page = () => {
