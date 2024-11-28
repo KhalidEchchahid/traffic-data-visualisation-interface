@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Phone, Instagram, Facebook } from "lucide-react";
-import { Button } from "./ui/button";
+import { Phone, Facebook } from "lucide-react";
+import Link from "next/link";
 
 const Footer: React.FC = () => {
   return (
@@ -25,22 +25,13 @@ const Footer: React.FC = () => {
             </h3>
             <div className="flex gap-4">
               <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-white hover:text-yellow-400"
+                <Link
+                  href="https://web.facebook.com/profile.php?id=61568845443903"
+                  target="_blank"
+                  className="text-white hover:text-yellow-400 "
                 >
-                  <Instagram className="w-6 h-6" />
-                </Button>
-              </motion.div>
-              <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-white hover:text-yellow-400"
-                >
-                  <Facebook className="w-6 h-6" />
-                </Button>
+                  <Facebook className="w-6 h-6 " />
+                </Link>
               </motion.div>
             </div>
           </div>
