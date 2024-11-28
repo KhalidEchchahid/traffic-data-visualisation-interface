@@ -8,13 +8,12 @@ import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 export const metadata: Metadata = {
-  title: "سروال القندريسي العصري - أناقة وراحة في تصميم واحد",
+  title: "حذاء رياضي مريح وأنيق ",
   description:
-    "اكتشف سروال القندريسي العصري، مزيج مثالي من الأناقة والراحة. مصمم للرجال العصريين، مناسب لجميع المناسبات. جودة عالية، تصميم أنيق، وراحة فائقة. اطلب الآن واستمتع بالتوصيل المجاني!",
+    "  هذا الحذاء الرياضي مصمم بعناية ليوفر لك الراحة والأناقة طوال اليوم. يتميز بتصميم عصري يتماشى مع جميع الإطلالات اليومية، سواء كانت كاجوال أو رياضية.  مصنوع من خامات عالية الجودة تضمن التهوية والمتانة، مع وسادة قدم ناعمة  لتوفير دعم مثالي لراحة قدميك.",
   icons: {
-    icon: "/public/kandrissi-noir2.jpeg",
+    icon: "/images/shoes3.jpg",
   },
 };
 
@@ -45,7 +44,7 @@ export default function RootLayout({
           t.src=v;s=b.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', 'id');
+          fbq('init', '2296718470715054');
           fbq('track', 'PageView');
         `}
         </Script>
@@ -55,7 +54,7 @@ export default function RootLayout({
             height="1"
             width="1"
             style={{ display: "none" }}
-            src={`https://www.facebook.com/tr?id=&ev=PageView&noscript=1`}
+            src={`https://www.facebook.com/tr?id=2296718470715054&ev=PageView&noscript=1`}
           />
         </noscript>
       </body>

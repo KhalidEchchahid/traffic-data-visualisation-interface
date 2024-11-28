@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ProductDiscription from "@/components/ProductDiscription";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
 
 const product = {
   id: 1,
@@ -22,10 +23,20 @@ const product = {
 };
 
 const reviews = [
-  { id: 1, rating: 5, text: "خدمة ممتازة وجودة عالية! أنصح الجميع." },
-  { id: 2, rating: 4, text: "التوصيل سريع، والمنتج رائع!" },
-  { id: 3, rating: 5, text: "أحببت الخدمة جداً. شكراً لكم!" },
+  { id: 1, rating: 5, text: "وصلتني السبرديلة، داكشي ناضي شكرا أخي👍" },
+  { id: 2, rating: 4, text: "السبرديلة كما شفتها فالصورة، شكرا أخي اللهم بارك ☺" },
+  { id: 3, rating: 5, text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍" },
 ];
+
+export const metadata: Metadata = {
+  title: "حذاء رياضي مريح وأنيق ",
+  description:
+    "  هذا الحذاء الرياضي مصمم بعناية ليوفر لك الراحة والأناقة طوال اليوم. يتميز بتصميم عصري يتماشى مع جميع الإطلالات اليومية، سواء كانت كاجوال أو رياضية.  مصنوع من خامات عالية الجودة تضمن التهوية والمتانة، مع وسادة قدم ناعمة  لتوفير دعم مثالي لراحة قدميك.",
+  icons: {
+    icon: "/images/shoes3.jpg",
+  },
+};
+
 
 const Page = () => {
   const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
@@ -43,7 +54,7 @@ const Page = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-6xl font-bold text-center mb-4"
         >
-          حذاء رياضي مريح وأنيق{" "}
+          حذاء رياضي مريح وأنيق
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 50 }}

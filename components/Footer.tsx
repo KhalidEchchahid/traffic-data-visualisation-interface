@@ -9,24 +9,36 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 text-yellow-400">تواصل معنا</h3>
+            <h3 className="text-xl font-bold mb-4 text-yellow-400">
+              تواصل معنا
+            </h3>
             <div className="space-y-2">
               <p className="flex items-center text-gray-300">
-                <Phone className="mr-2" /> واتساب: 212645557609
+                <Phone className="mr-2" /> 0690755573
               </p>
               <p className="text-gray-400">توصيل مجاني داخل المغرب!</p>
             </div>
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-4 text-yellow-400">تابعنا على مواقع التواصل</h3>
+            <h3 className="text-xl font-bold mb-4 text-yellow-400">
+              تابعنا على مواقع التواصل
+            </h3>
             <div className="flex gap-4">
               <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-                <Button variant="ghost" size="icon" className="text-white hover:text-yellow-400">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:text-yellow-400"
+                >
                   <Instagram className="w-6 h-6" />
                 </Button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-                <Button variant="ghost" size="icon" className="text-white hover:text-yellow-400">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:text-yellow-400"
+                >
                   <Facebook className="w-6 h-6" />
                 </Button>
               </motion.div>
