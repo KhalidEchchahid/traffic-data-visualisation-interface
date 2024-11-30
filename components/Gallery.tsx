@@ -45,7 +45,8 @@ const Gallery = ({ images }: GalleryProps) => {
   });
 
   return (
-    <div className="flex flex-col gap-3 max-w-[500px]" id="gallery">
+    <div className="flex flex-col gap-3 max-w-[500px]" id="gallery" >
+      {/* just a comment */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogTrigger asChild>
           <div {...handlers} className="relative">
