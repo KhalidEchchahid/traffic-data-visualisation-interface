@@ -12,11 +12,17 @@ import Footer from "@/components/Footer";
 const product = {
   id: 1,
   name: "متوفر لاي نوع من الانشطة",
-  price: 249,
+  price: 219,
   discount: 350,
-  images: ["/images/shoes1.jpg", "/images/shoes2.jpg", "/images/shoes3.jpg"],
-  colors: ["الاسود بالرمادي", "الابيض بالازرق"],
-  sizes: ["39", "40", "43", "44"],
+  images: [
+    "/images/S5.jpg",
+    "/images/S4.jpg",
+    "/images/S3.jpg",
+    "/images/S2.jpg",
+    "/images/S1.jpg",
+  ],
+  colors: ["اسود ", "ابيض "],
+  sizes: ["39", "40","41" , "42" ,  "43", "44"],
   availableStock: 50,
   sku: "KANDRISSI-J001",
 };
@@ -51,7 +57,7 @@ const Page = () => {
           transition={{ duration: 0.5 }}
           className="text-4xl md:text-6xl font-bold text-center mb-4"
         >
-          حذاء رياضي مريح وأنيق
+          حذاء أنيق وعصري - مزيج مثالي بين الراحة والأناقة{" "}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 50 }}
