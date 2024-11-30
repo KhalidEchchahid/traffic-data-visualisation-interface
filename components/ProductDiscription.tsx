@@ -86,7 +86,7 @@ const ProductDiscription = () => {
             variants={fadeInUp}
             className="flex items-center gap-2"
           >
-            <span>✔️</span> المقاسات: من 39 إلى 44
+            <span>✔️</span> المقاسات: من 40 إلى 44
           </motion.li>
         </ul>
         <ul className="space-y-3 text-gray-300 mt-3">

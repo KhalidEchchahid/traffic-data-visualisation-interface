@@ -22,7 +22,7 @@ const product = {
     "/images/S1.jpg",
   ],
   colors: ["اسود ", "ابيض "],
-  sizes: ["39", "40","41" , "42" ,  "43", "44"],
+  sizes: ["40","41" , "42" ,  "43", "44"],
   availableStock: 50,
   sku: "KANDRISSI-J001",
 };
@@ -92,7 +92,7 @@ const Page = () => {
           quantity={quantity}
         />
         <ProductDiscription />
-        <ReviewsSection reviews={reviews} />
+        {/* <ReviewsSection reviews={reviews} /> */}
       </div>
       <Footer />
     </div>
