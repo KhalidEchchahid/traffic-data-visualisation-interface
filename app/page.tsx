@@ -12,14 +12,13 @@ import Footer from "@/components/Footer";
 const product = {
   id: 1,
   name: "متوفر لاي نوع من الانشطة",
-  price: 219,
-  discount: 350,
+  price: 349,
+  discount: 450,
   images: [
     "/images/S5.jpg",
     "/images/S4.jpg",
     "/images/S3.jpg",
     "/images/S2.jpg",
-    "/images/S1.jpg",
   ],
   colors: ["اسود ", "ابيض "],
   sizes: ["40","41" , "42" ,  "43", "44"],
@@ -28,17 +27,13 @@ const product = {
 };
 
 const reviews = [
-  { id: 1, rating: 5, text: "وصلتني السبرديلة، داكشي ناضي شكرا أخي👍" },
+  { id: 1, rating: 5, text: "صافي أخي راه وصلتني السبرديلة الله يرحم الولدين 😊" },
   {
     id: 2,
     rating: 4,
-    text: " السبرديلة كما شفتها فالصورة، شكرا خويا اللهم بارك ☺️",
+    text: " السلام عليكم خويا السبرديلة واعرة تبرك الله عليك  فش يكون شجديد خبرني 👍",
   },
-  {
-    id: 3,
-    rating: 5,
-    text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍",
-  },
+ 
 ];
 
 const Page = () => {
@@ -92,7 +87,7 @@ const Page = () => {
           quantity={quantity}
         />
         <ProductDiscription />
-        {/* <ReviewsSection reviews={reviews} /> */}
+        <ReviewsSection reviews={reviews} />
       </div>
       <Footer />
     </div>
