@@ -8,12 +8,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import ProductDiscription from "@/components/ProductDiscription";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 
 const product = {
   id: 1,
   name: "متوفر لاي نوع من الانشطة",
-  price: 349,
-  discount: 450,
+  price: 199,
+  discount: 350,
   images: [
     "/images/S5.jpg",
     "/images/S4.jpg",
@@ -46,6 +47,16 @@ const Page = () => {
       <Navbar />
       {/* Hero Section */}
       <header className="container mx-auto px-4 pt-6">
+        {/* Logo */}
+        <div className="flex justify-center mb-4">
+          <Image
+            src="/saad-logo.png" // Replace with the actual path to your logo
+            alt="Logo"
+            className="h-16 w-auto"
+            height={60}
+            width={60}
+          />
+        </div>
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
