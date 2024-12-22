@@ -57,7 +57,6 @@ const ProductInfo = ({
       {/* Colors */}
       {colors.length > 0 && (
         <div className="mt-6">
-          <h2 className="text-lg font-semibold text-gray-200">الألوان:</h2>
           <div className="flex flex-wrap gap-2 mt-2">
             {colors.map((color, index) => (
               <button

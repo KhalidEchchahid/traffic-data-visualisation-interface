@@ -13,8 +13,8 @@ import Image from "next/image";
 const product = {
   id: 1,
   name: "متوفر لاي نوع من الانشطة",
-  price: 239,
-  discount: 350,
+  price: 199,
+  discount: 300,
   images: [ "/images/shoes2.jpg"],
   colors: ["الاسود بالرمادي" ],
   sizes: ["39", "40","41", "42" , "43","44"],
@@ -71,7 +71,7 @@ const Page = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-xl text-center mb-8"
         >
-          ماركات جديدة من السبرديلة بجوج ديال الألوان، مميزة وأنيقة !
+          ماركات جديدة من السبرديلة، مميزة وأنيقة !
         </motion.p>
       </header>
       <div className="container mx-auto px-4 py-4">

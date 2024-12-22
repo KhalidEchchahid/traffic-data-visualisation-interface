@@ -66,7 +66,7 @@ const CheckoutForm = ({
         name: values.fullname,
         city: values.city,
         phone: values.phone,
-        totalAmount: totalAmount,
+        totalAmount: totalAmount + 19 ,
         color: selectedColor,
         shippingAdress : "",
         size: selectedSize,
