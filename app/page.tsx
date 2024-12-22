@@ -17,7 +17,7 @@ const product = {
   discount: 300,
   images: [ "/images/shoes2.jpg"],
   colors: ["الاسود بالرمادي" ],
-  sizes: ["39", "40","41", "42" , "43","44"],
+  sizes: ["39", "40","41","43","44"],
   availableStock: 50,
   sku: "KANDRISSI-J001",
 };
