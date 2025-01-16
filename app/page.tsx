@@ -13,11 +13,11 @@ import Image from "next/image";
 const product = {
   id: 1,
   name: "متوفر لاي نوع من الانشطة",
-  price: 199,
+  price: 249,
   discount: 300,
   images: [ "/images/shoes2.jpg"],
   colors: ["الاسود بالرمادي" ],
-  sizes: ["39", "40","43","44"],
+  sizes: ["39","40","41","42","43","44"],
   availableStock: 50,
   sku: "KANDRISSI-J001",
 };
