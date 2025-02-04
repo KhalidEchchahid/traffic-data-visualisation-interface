@@ -45,17 +45,17 @@ const Gallery = ({ images }: GalleryProps) => {
   });
 
   return (
-    <div className="flex flex-col gap-3 max-w-[500px]" id="gallery" >
+    <div className="flex flex-col gap-3 max-w-[500px]" id="gallery">
       {/* just a comment */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogTrigger asChild>
-          <div {...handlers} className="relative">
+          <div className="relative w-96 h-96">
             <Image
-              src={mainImage}
-              width={300}
-              height={300}
+              src={mainImage || "/placeholder.svg"}
+              fill
+              quality={100}
               alt="product"
-              className="w-96 h-96 rounded-lg shadow-xl object-cover relative cursor-pointer"
+              className="rounded-lg shadow-xl object-cover cursor-pointer"
               onClick={() => openModal(mainImage)}
             />
           </div>
@@ -95,4 +95,3 @@ const Gallery = ({ images }: GalleryProps) => {
 };
 
 export default Gallery;
-

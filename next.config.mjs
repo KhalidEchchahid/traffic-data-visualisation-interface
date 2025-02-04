@@ -10,6 +10,7 @@ const nextConfig = {
           hostname: "www.facebook.com",
         },
       ],
+      minimumCacheTTL: 60,
     },
 };
 

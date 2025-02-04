@@ -13,11 +13,17 @@ import Image from "next/image";
 const product = {
   id: 1,
   name: "متوفر لاي نوع من الانشطة",
-  price: 249,
+  price: 229,
   discount: 300,
-  images: [ "/images/shoes2.jpg"],
-  colors: ["الاسود بالرمادي" ],
-  sizes: ["39","40","41","42","43","44"],
+  images: [
+    "/images/1.jpg",
+    "/images/2.jpg",
+    "/images/3.jpg",
+    "/images/4.jpg",
+    "/images/5.jpg",
+  ],
+  colors: ["الاسود بالرمادي"],
+  sizes: ["39", "40", "41", "42", "43", "44"],
   availableStock: 50,
   sku: "KANDRISSI-J001",
 };
@@ -35,7 +41,6 @@ const reviews = [
     text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍",
   },
 ];
-
 
 const Page = () => {
   const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
