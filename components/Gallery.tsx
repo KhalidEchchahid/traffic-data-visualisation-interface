@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import {
   Dialog,
@@ -19,6 +19,14 @@ const Gallery = ({ images }: GalleryProps) => {
   const [mainImage, setMainImage] = useState(images[0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState<string | null>(null);
+  const [prevImage, setPrevImage] = useState(images[images.length - 1]);
+  const [nextImage, setNextImage] = useState(images[1]);
+
+  useEffect(() => {
+    const currentIndex = images.indexOf(mainImage);
+    setPrevImage(images[(currentIndex - 1 + images.length) % images.length]);
+    setNextImage(images[(currentIndex + 1) % images.length]);
+  }, [mainImage, images]);
 
   const openModal = (image: string) => {
     setModalImage(image);
@@ -46,14 +54,15 @@ const Gallery = ({ images }: GalleryProps) => {
 
   return (
     <div className="flex flex-col gap-3 max-w-[500px]" id="gallery">
-      {/* just a comment */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogTrigger asChild>
-          <div className="relative w-96 h-96">
+          <div className="relative w-96 h-96" {...handlers}>
             <Image
               src={mainImage || "/placeholder.svg"}
               fill
               quality={100}
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               alt="product"
               className="rounded-lg shadow-xl object-cover cursor-pointer"
               onClick={() => openModal(mainImage)}
@@ -66,10 +75,11 @@ const Gallery = ({ images }: GalleryProps) => {
           </DialogHeader>
           {modalImage && (
             <Image
-              src={modalImage}
+              src={modalImage || "/placeholder.svg"}
               alt="Full Image"
               width={600}
               height={700}
+              quality={100}
               className="rounded-lg w-full h-full object-contain"
             />
           )}
@@ -79,9 +89,10 @@ const Gallery = ({ images }: GalleryProps) => {
         {images.map((image, index) => (
           <Image
             key={index}
-            src={image}
-            height={200}
-            width={200}
+            src={image || "/placeholder.svg"}
+            height={80}
+            width={80}
+            loading="lazy"
             alt={`product-${index}`}
             className={`w-20 h-20 rounded-lg object-cover cursor-pointer ${
               mainImage === image ? "border-2 border-blue-500" : ""
@@ -89,6 +100,10 @@ const Gallery = ({ images }: GalleryProps) => {
             onClick={() => setMainImage(image)}
           />
         ))}
+      </div>
+      <div className="hidden">
+        <Image src={prevImage || "/placeholder.svg"} width={300} height={300} priority alt="Preload previous" />
+        <Image src={nextImage || "/placeholder.svg"} width={300} height={300} priority alt="Preload next" />
       </div>
     </div>
   );
