@@ -56,15 +56,14 @@ const Gallery = ({ images }: GalleryProps) => {
     <div className="flex flex-col gap-3 max-w-[500px]" id="gallery">
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogTrigger asChild>
-          <div className="relative w-96 h-96" {...handlers}>
+          <div {...handlers} className="relative">
+            {" "}
             <Image
-              src={mainImage || "/placeholder.svg"}
-              fill
-              quality={100}
-              priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              src={mainImage}
+              width={300}
+              height={300}
               alt="product"
-              className="rounded-lg shadow-xl object-cover cursor-pointer"
+              className="w-96 h-96 rounded-lg shadow-xl object-cover relative cursor-pointer"
               onClick={() => openModal(mainImage)}
             />
           </div>
@@ -102,8 +101,20 @@ const Gallery = ({ images }: GalleryProps) => {
         ))}
       </div>
       <div className="hidden">
-        <Image src={prevImage || "/placeholder.svg"} width={300} height={300} priority alt="Preload previous" />
-        <Image src={nextImage || "/placeholder.svg"} width={300} height={300} priority alt="Preload next" />
+        <Image
+          src={prevImage || "/placeholder.svg"}
+          width={300}
+          height={300}
+          priority
+          alt="Preload previous"
+        />
+        <Image
+          src={nextImage || "/placeholder.svg"}
+          width={300}
+          height={300}
+          priority
+          alt="Preload next"
+        />
       </div>
     </div>
   );
