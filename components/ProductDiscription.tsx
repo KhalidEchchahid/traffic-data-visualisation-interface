@@ -74,7 +74,7 @@ const ProductDiscription = () => {
                 "الخامة: نسيج شبكي يسمح بتهوية القدمين",
                 "النعل: مطاطي مضاد للانزلاق لثبات أكبر",
                 "اللون: متوفر بالآلوان التي في الصورة",
-                "المقاسات: من 40 إلى 44",
+                "المقاسات: من 39 إلى 44",
               ].map((item, index) => (
                 <motion.li
                   key={index}
@@ -115,7 +115,7 @@ const ProductDiscription = () => {
           <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-2xl flex justify-center items-start">
             <iframe
               className="w-96 h-full"
-              src="https://www.youtube.com/embed/dmwwOZaeaec"
+              src="https://www.youtube.com/embed/0dOMBld73e0"
               title="Product Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
