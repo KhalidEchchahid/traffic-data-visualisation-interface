@@ -1,20 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "./ui/form";
+import { motion } from "framer-motion";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
-import { Button } from "./ui/button";
 import { createOrder } from "@/lib/actions/order.action";
 
 const formSchema = z.object({
@@ -35,6 +29,7 @@ interface Props {
   quantity: number;
   price: number;
 }
+
 const CheckoutForm = ({
   selectedColor,
   selectedSize,
@@ -43,7 +38,7 @@ const CheckoutForm = ({
 }: Props) => {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const totalAmount = price * quantity;
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,19 +51,22 @@ const CheckoutForm = ({
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
+    setMessage("");
+
+    if (selectedColor === "" || selectedSize === "") {
+      setMessage("يرجى اختيار اللون والحجم قبل متابعة الطلب.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      if (selectedColor === "" || selectedSize === "") {
-        setError("يرجى اختيار الحجم قبل متابعة الطلب.");
-        setIsSubmitting(false);
-        return;
-      }
       const newOrder = await createOrder({
         name: values.fullname,
         city: values.city,
         phone: values.phone,
-        totalAmount: totalAmount ,
+        totalAmount: totalAmount + 19,
         color: selectedColor,
-        shippingAdress : "",
+        shippingAdress: "",
         size: selectedSize,
         quantity,
       });
@@ -76,7 +74,7 @@ const CheckoutForm = ({
       router.push("/thanks");
     } catch (error) {
       console.log("[checkout_post]", error);
-      setError("حدث خطأ ما ، يرجى المحاولة مرة أخرى");
+      setMessage("حدث خطأ ما ، يرجى المحاولة مرة أخرى");
     } finally {
       setIsSubmitting(false);
     }
@@ -91,15 +89,16 @@ const CheckoutForm = ({
   return (
     <div className="flex items-start justify-center mb-10 px-4" id="order">
       <div className="w-full max-w-lg pt-6">
-        <h1 className="text-3xl font-bold mb-8 text-center text-white">
-        للطلب إملأ الخانات أسفله
+        <h1 className="text-3xl font-bold mb-4 text-center text-white">
+          للطلب إملأ الخانات أسفله
         </h1>
+        <h2 className="text-xl font-semibold mb-8 text-center text-yellow-400">
+          بعد اختيار اللون والحجم
+        </h2>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {error && (
-              <div className="bg-red-100 text-red-700 p-3 rounded-lg mb-4 text-center">
-                {error}
-              </div>
+            {message && (
+              <p className="text-yellow-400 text-center mb-4">{message}</p>
             )}
             <FormField
               control={form.control}
@@ -154,13 +153,45 @@ const CheckoutForm = ({
                 </FormItem>
               )}
             />
-            <Button
+            <motion.button
               type="submit"
               className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-3 w-full rounded-lg hover:opacity-90 transition duration-300"
               disabled={isSubmitting}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 30,
+              }}
             >
-               أطلب الان
-            </Button>
+              {isSubmitting ? (
+                <motion.div
+                  className="flex justify-center items-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <motion.span
+                    className="h-4 w-4 bg-black rounded-full inline-block mr-2"
+                    animate={{
+                      scale: [1, 1.5, 1],
+                      opacity: [1, 0.5, 1],
+                    }}
+                    transition={{
+                      duration: 1,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  جاري الطلب...
+                </motion.div>
+              ) : (
+                "أطلب الان"
+              )}
+            </motion.button>
           </form>
         </Form>
       </div>

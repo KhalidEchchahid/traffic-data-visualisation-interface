@@ -40,16 +40,16 @@ const ProductInfo = ({
       {/* Price & Original Price */}
       <div className="mt-4 flex justify-between">
         <div className="flex gap-4">
-        <p className="text-2xl font-bold text-gray-200">{price} درهم</p>
-        {discount > 0 && (
-          <p className="text-sm text-gray-400 line-through mt-3">
-            {discount} درهم
-          </p>
-        )}
+          <p className="text-2xl font-bold text-gray-200">{price} درهم</p>
+          {discount > 0 && (
+            <p className="text-sm text-gray-400 line-through mt-3">
+              {discount} درهم
+            </p>
+          )}
         </div>
         {discountPercentage > 0 && (
           <div className="bg-green-500 h-6 text-black text-xs font-semibold px-2 py-1 rounded-2xl">
-            {discountPercentage}%- 
+            {discountPercentage}%-
           </div>
         )}
       </div>
@@ -57,6 +57,9 @@ const ProductInfo = ({
       {/* Colors */}
       {colors.length > 0 && (
         <div className="mt-6">
+          <h2 className="text-lg font-semibold text-gray-200">
+            اضغط على اللون:
+          </h2>
           <div className="flex flex-wrap gap-2 mt-2">
             {colors.map((color, index) => (
               <button
@@ -74,11 +77,12 @@ const ProductInfo = ({
           </div>
         </div>
       )}
-
       {/* Sizes */}
       {sizes.length > 0 && (
         <div className="mt-4">
-          <h2 className="text-lg font-semibold text-gray-200">الأحجام:</h2>
+          <h2 className="text-lg font-semibold text-gray-200">
+            اضغط على الحجم:
+          </h2>
           <div className="flex gap-2 mt-2">
             {sizes.map((size, index) => (
               <button
