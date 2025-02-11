@@ -4,7 +4,7 @@ import Gallery from "@/components/Gallery";
 import Navbar from "@/components/Navbar";
 import ProductInfo from "@/components/ProductInfo";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import ProductDiscription from "@/components/ProductDiscription";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
@@ -22,14 +22,22 @@ const product = {
     "/images/4.jpg",
     "/images/5.jpg",
   ],
-  colors: ["الاسود بالرمادي","الأبيض بالأزرق"],
-  sizes: ["39", "40", "41", "42", "43", "44"],
+  colors: [
+    {
+      name: "الاسود بالرمادي",
+      sizes: ["39", "40", "41", "42", "43", "44"],
+    },
+    {
+      name: "الأبيض بالأزرق",
+      sizes: ["39", "43", "44"],
+    },
+  ],
   availableStock: 50,
   sku: "KANDRISSI-J001",
 };
 
 const reviews = [
-  { id: 1, rating: 5, text: "وصلتني السبرديلة، داكشي ناضي شكرا أخي👍" },
+  { id: 1, rating: 5, text: "وصلتني السبرديلة، داكشي ناضي شكرا أخي👍" },
   {
     id: 2,
     rating: 4,
@@ -38,13 +46,17 @@ const reviews = [
   {
     id: 3,
     rating: 5,
-    text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍",
+    text: "صافي أخي راه وصلتني لكموند، إلكان شي جديد خبرني👍",
   },
 ];
 
 const Page = () => {
-  const [selectedColor, setSelectedColor] = useState<string>(product.colors[0]);
-  const [selectedSize, setSelectedSize] = useState<string>(product.sizes[0]);
+  const [selectedColor, setSelectedColor] = useState<string>(
+    product.colors[0].name
+  );
+  const [selectedSize, setSelectedSize] = useState<string>(
+    product.colors[0].sizes[0]
+  );
   const [quantity, setQuantity] = useState<number>(1);
 
   return (
@@ -55,7 +67,7 @@ const Page = () => {
         {/* Logo */}
         <div className="flex justify-center mb-4">
           <Image
-            src="/saad-logo.png" // Replace with the actual path to your logo
+            src="/saad-logo.png"
             alt="Logo"
             className="h-16 w-auto"
             height={60}
@@ -84,7 +96,6 @@ const Page = () => {
           <Gallery images={product.images} />
           <ProductInfo
             title={product.name}
-            sizes={product.sizes}
             colors={product.colors}
             price={product.price}
             discount={product.discount}
