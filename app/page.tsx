@@ -13,7 +13,7 @@ import Image from "next/image";
 const product = {
   id: 1,
   name: "متوفر لاي نوع من الانشطة",
-  price: 199,
+  price: 219,
   discount: 300,
   images: [
     "/images/12.jpg",
