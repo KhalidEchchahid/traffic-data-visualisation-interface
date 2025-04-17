@@ -1,10 +1,5 @@
-import { DashboardLayout } from "@/components/dashboard-layout"
-import { DashboardContent } from "@/components/dashboard-content"
+import { DashboardOverview } from "@/components/dashboard/dashboard-overview";
 
 export default function Home() {
-  return (
-    <DashboardLayout>
-      <DashboardContent />
-    </DashboardLayout>
-  )
+  return <DashboardOverview />;
 }

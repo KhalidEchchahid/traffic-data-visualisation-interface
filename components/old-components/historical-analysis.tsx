@@ -1,18 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { DashboardLayout } from "@/components/dashboard-layout"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { IncidentFrequencyChart } from "@/components/incident-frequency-chart"
-import { CongestionHeatmap } from "@/components/congestion-heatmap"
-import { AdvancedDataTable } from "@/components/advanced-data-table"
-import { ComparativeAnalysis } from "@/components/comparative-analysis"
-import { TimeRangeSelector } from "./time-range-selector"
-import { TrafficDensitySpeedChart } from "./traffic-density-speed-chart"
-import { WeatherDistributionChart } from "./weather-disribution-chart"
+import { useState } from "react";
+import { DashboardLayout } from "@/components/old-components/dashboard-layout";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { IncidentFrequencyChart } from "@/components/old-components/incident-frequency-chart";
+import { CongestionHeatmap } from "@/components/old-components/congestion-heatmap";
+import { AdvancedDataTable } from "@/components/old-components/advanced-data-table";
+import { ComparativeAnalysis } from "@/components/comparative-analysis";
+import { TimeRangeSelector } from "./time-range-selector";
+import { TrafficDensitySpeedChart } from "./traffic-density-speed-chart";
+import { WeatherDistributionChart } from "./weather-disribution-chart";
 
 export function HistoricalAnalysis() {
-  const [timeRange, setTimeRange] = useState({ start: new Date(Date.now() - 24 * 60 * 60 * 1000), end: new Date() })
+  const [timeRange, setTimeRange] = useState({
+    start: new Date(Date.now() - 24 * 60 * 60 * 1000),
+    end: new Date(),
+  });
 
   return (
     <DashboardLayout>
@@ -66,7 +75,9 @@ export function HistoricalAnalysis() {
         <Card>
           <CardHeader>
             <CardTitle>Advanced Data Table</CardTitle>
-            <CardDescription>Detailed traffic data with filtering and export options</CardDescription>
+            <CardDescription>
+              Detailed traffic data with filtering and export options
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <AdvancedDataTable timeRange={timeRange} />
@@ -84,6 +95,5 @@ export function HistoricalAnalysis() {
         </Card>
       </div>
     </DashboardLayout>
-  )
+  );
 }
-

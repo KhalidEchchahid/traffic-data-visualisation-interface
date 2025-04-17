@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { DateRangePicker } from "@/components/date-range-picker";
+import { DateRangePicker } from "@/components/old-components/date-range-picker";
 import dynamic from "next/dynamic";
 
 // Import components with no SSR

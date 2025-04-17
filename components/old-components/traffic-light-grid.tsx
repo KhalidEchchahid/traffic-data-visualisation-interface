@@ -3,29 +3,21 @@
 import { Clock } from "lucide-react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
-interface TrafficLightGridProps {
+interface Intersection {
+  id: string
+  name: string
   status: string
+  timeRemaining: number
 }
 
-export function TrafficLightGrid({ status }: TrafficLightGridProps) {
-  // In a real implementation, this would be actual data from multiple intersections
-  // For this example, we'll create some sample data
-  const intersections = [
-    { id: 1, name: "Main St & 1st Ave", status: status, timeRemaining: 15 },
-    { id: 2, name: "Broadway & 5th St", status: getRandomStatus(), timeRemaining: 8 },
-    { id: 3, name: "Park Ave & 3rd St", status: getRandomStatus(), timeRemaining: 22 },
-    { id: 4, name: "Market St & 2nd Ave", status: getRandomStatus(), timeRemaining: 5 },
-  ]
+interface TrafficLightGridProps {
+  intersections: Intersection[]
+}
 
-  // Helper function to get a random status
-  function getRandomStatus() {
-    const statuses = ["red", "yellow", "green"]
-    return statuses[Math.floor(Math.random() * statuses.length)]
-  }
-
+export function TrafficLightGrid({ intersections }: TrafficLightGridProps) {
   // Helper function to get status color
   function getStatusColor(status: string) {
-    switch (status) {
+    switch (status?.toLowerCase()) {
       case "red":
         return "bg-red-500"
       case "yellow":
